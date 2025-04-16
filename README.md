@@ -1,27 +1,29 @@
 Step by step instructions for deploying to S3 using localstack.
 
-1)docker compose up -d
+1)npm run build
 
-2)docker exec -it stacky bash
+2)docker compose up -d
 
-3)cd my-site
+3)docker exec -it stacky bash
 
-4)awslocal s3api create-bucket --bucket my-site
+4)cd my-site
 
-5)awslocal s3api list-buckets
+5)awslocal s3api create-bucket --bucket my-site
 
-6)cd dist
+6)awslocal s3api list-buckets
 
-7)awslocal s3 website s3://my-site --index-document index.html
+7)cd dist
 
-8)cd ..
+8)awslocal s3 website s3://my-site --index-document index.html
 
-9)awslocal s3 sync dist s3://my-site
+9)cd ..
 
-10)awslocal s3api put-bucket-policy --bucket my-site --policy file://policy.json
+10)awslocal s3 sync dist s3://my-site
 
-11)Access website at http://my-site.s3.localhost.localstack.cloud:4566/index.html
+11)awslocal s3api put-bucket-policy --bucket my-site --policy file://policy.json
 
-12)exit
+12)Access website at http://my-site.s3.localhost.localstack.cloud:4566/index.html
 
-13)docker compose down
+13)exit
+
+14)docker compose down
