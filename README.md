@@ -1,6 +1,6 @@
 Step by step instructions for deploying to S3 using localstack.
 
-1)npm run build
+1)npm run build (then move dist folder to my-site fodler)
 
 2)docker compose up -d
 
